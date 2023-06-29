@@ -1,0 +1,165 @@
+html {
+    font-size: 62.5%;
+    /* 16px × 62.5% = 10px*/
+
+}
+
+body {
+    font-family: Roboto, "Yu Gothic Medium", "游ゴシック Medium", YuGothic, "游ゴシック体", "ヒラギノ角ゴ Pro W3", "メイリオ", sans-serif;
+    line-height: 1.75;
+    font-size: 1.6rem;
+    background-color: #f7f7f7;
+}
+
+
+
+
+/*---------------------
+         header
+----------------------*/
+
+header {
+    width: auto;
+    text-align: center;
+    background-color: #616161;
+    color: #fff;
+}
+
+h1 {
+    font-size: 4.0rem;
+}
+
+.gear_image {
+    max-width: 200px;
+    height: 10%;
+}
+
+/*---------------------
+         maim
+----------------------*/
+.registration_area {
+    width: 400px;
+    margin: 0 auto;
+}
+
+.registration_area form {
+    text-align: left;
+}
+
+.gear_list_link {
+    padding: 20px 0 20px;
+    text-align: right;
+
+}
+
+.gear_list_link a {
+    display: inline-block;
+    padding: 3px 10px 3px;
+    border-radius: 5px;
+    border: 1px solid #c8c8c8;
+    text-align: center;
+    background-color: #c8c8c8;
+    color: #000000;
+}
+
+.gear_name_form p {
+    padding: 20px 0 5px;
+}
+
+.gear_name_form input {
+    padding: 10px;
+    width: 100%;
+    border-radius: 5px;
+    border: 1px solid #616161;
+}
+
+.gear_image_form p {
+    padding: 20px 0 5px;
+}
+
+.gear_image_form input {
+    padding: 10px;
+    width: 100%;
+
+}
+
+.gear_gram p {
+    padding: 20px 0 5px;
+}
+
+.gear_gram input {
+    padding: 10px;
+    width: 100%;
+    border-radius: 5px;
+    border: 1px solid #616161;
+}
+
+.gear_kind p {
+    padding: 20px 0 5px;
+}
+
+.gear_kind select {
+    padding: 10px;
+    width: 100%;
+    border-radius: 5px;
+    border: 1px solid #616161;
+}
+
+.gear_text p {
+    padding: 20px 0 5px;
+}
+
+.gear_text textarea {
+    padding: 10px;
+    width: 100%;
+    height: 300px;
+    border-radius: 5px;
+    border: 1px solid #616161;
+}
+
+.registration_button {
+    padding: 20px 0 5px;
+    text-align: center;
+}
+
+.registration_button button {
+    padding: 10px;
+    width: 200px;
+    border: 1px solid #616161;
+    border-radius: 5px;
+}
+
+
+/*---------------------
+         read画面
+----------------------*/
+
+.gear_read_area {
+    max-width: 1500px;
+    width: 100%;
+    margin: 0 auto;
+    padding: 0 30px 0;
+}
+
+.gear_read_table {
+    border: 1px solid #616161;
+    width: 100%;
+}
+
+.gear_read_table tr {
+    border: 1px solid #616161;
+
+}
+
+.gear_read_table th {
+    border: 1px solid #616161;
+    background-color: #c8c8c8;
+
+}
+
+.gear_read_table td {
+    border: 1px solid #616161;
+    vertical-align: middle;
+    padding: 10px;
+
+}
