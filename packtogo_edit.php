@@ -95,6 +95,7 @@ $file_path = "./gear_images/{$record['gear_image']}";
             </div>
             <div>
                 <input type="hidden" name="id" value="<?= $record['id'] ?>">
+                <input type="hidden" name="existing_gear_image" value="<?= $record['gear_image'] ?>">
             </div>
             <div class="registration_button">
                 <button>更新</button>
