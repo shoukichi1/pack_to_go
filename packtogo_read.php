@@ -68,12 +68,13 @@ foreach ($result as $record) {
 
 <body>
     <header>
-        <h1>gear_list（一覧画面）</h1>
+        <h1>gear_list（リスト）</h1>
     </header>
 
     <div class="gear_read_area">
         <div class="gear_list_link">
-            <a href="packtogo_input.php">入力画面</a>
+            <a href="packtogo_input.php">ギア登録</a>
+            <a href="equipment_create.php">装備作成</a>
         </div>
 
         <table class="gear_read_table">

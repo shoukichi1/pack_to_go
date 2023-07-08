@@ -12,14 +12,14 @@
 
 <body>
     <header>
-        <h1>registration（入力画面）</h1>
+        <h1>registration（ギア登録）</h1>
     </header>
 
     <div class="registration_area">
         <form action="packtogo_create.php" method="POST" enctype="multipart/form-data">
 
             <div class="gear_list_link">
-                <a href="packtogo_read.php">gear_list（一覧画面）</a>
+                <a href="packtogo_read.php">gear_list（ギアリスト）</a>
             </div>
             <div class="gear_name_form">
                 <p>ギアの名称</p>
