@@ -1,10 +1,12 @@
 <?php
+session_start();
+include('functions.php');
+check_session_id();
+
 // 接続確認
 // var_dump($_GET);
 // exit();
 
-// DB接続
-include('functions.php');
 // DB接続
 $pdo = connect_to_db();
 
@@ -44,7 +46,7 @@ $file_path = "./gear_images/{$record['gear_image']}";
     <link rel="stylesheet" href="css/reset.css">
     <link rel="stylesheet" href="css/style2.css">
     <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
-    <script src="https://cdn.tailwindcss.com"></script>
+
 </head>
 
 <header>

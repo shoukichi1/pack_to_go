@@ -1,5 +1,8 @@
 <?php
+session_start();
 include('functions.php');
+check_session_id();
+
 // DB接続
 $pdo = connect_to_db();
 
@@ -36,14 +39,14 @@ foreach ($result as $record) {
         <td><img src='{$file_path}' alt='Gear Image' class='gear_image'></td>
         <td>{$record['gear_kind']}</td>
         <td>{$record['gear_gram']}</td>
-        <td>{$record['gear_text']}</td>
-        <td>
-            <a href='packtogo_edit.php?id={$record['id']}'>edit</a>
-        </td>
-        <td>
-            <a href='packtogo_delete.php?id={$record['id']}'>delete</a>
-        </td>
-    </tr>";
+        <td>{$record['gear_text']}</td>";
+    if ($_SESSION['is_admin'] === 1) {
+        $output .= "<td><a href='packtogo_edit.php?id={$record["id"]}'>edit</a></td>
+      <td><a href='packtogo_delete.php?id={$record["id"]}'>delete</a></td>";
+    }
+    $output .= "
+    </tr>
+  ";
 }
 
 
@@ -72,6 +75,10 @@ foreach ($result as $record) {
     </header>
 
     <div class="gear_read_area">
+        <div class="gear_list_link">
+            <p>ようこそ！<?= $_SESSION['username'] ?>さん</p>
+            <a href="packtogo_logout.php">ログアウト</a>
+        </div>
         <div class="gear_list_link">
             <a href="packtogo_input.php">ギア登録</a>
             <a href="equipment_create.php">装備作成</a>

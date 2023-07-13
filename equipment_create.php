@@ -1,5 +1,8 @@
 <?php
+session_start();
 include('functions.php');
+check_session_id();
+
 // DB接続
 $pdo = connect_to_db();
 
@@ -49,39 +52,44 @@ foreach ($result as $record) {
     <header>
         <h1>equipment create（装備作成）</h1>
     </header>
-    <div class="gear_list_link">
+    <div class="gear_list_link registration_area">
         <a href="packtogo_read.php">一覧画面</a>
     </div>
     <?php foreach ($gearsByKind as $kind => $gears) : ?>
-        <div class="gear-kind">
+        <div class="gear_kind registration_area">
             <select class='gear-select' data-kind='<?= $kind ?>'>
+                <option value='' data-image=''>選択してください</option>
                 <?php foreach ($gears as $gear) : ?>
-                    <option value='<?= $gear['gear_gram'] ?>' data-image='<?= $gear['gear_image'] ?>'><?= $gear['gear_name'] ?></option>
+                    <option value='<?= $gear['gear_gram'] ?>' data-image='./gear_images/<?= $gear['gear_image'] ?>'><?= $gear['gear_name'] ?></option>
                 <?php endforeach; ?>
             </select>
             <div class="gear-info">
-                <img src="" alt="Gear Image" class="gear-image">
-                <div class="gear-gram"></div>
+                <img src="" alt="Gear Image" class="gear_image">
+                <div class="gear_gram"></div>
             </div>
         </div>
     <?php endforeach; ?>
-    <div class="total-gram"></div>
+    <div class="total-gram registration_area">Total gram: 0g</div>
     <script>
         $(document).ready(function() {
             $('.gear-select').change(function() {
-                var selectedOption = $(this).find('option:selected');
-                var gearImage = selectedOption.data('image');
-                var gearGram = selectedOption.val();
-                $(this).next('.gear-info').find('.gear-image').attr('src', gearImage);
-                $(this).next('.gear-info').find('.gear-gram').text(gearGram);
-                var totalGram = 0;
+                let selectedOption = $(this).find('option:selected');
+                let gearImage = selectedOption.data('image');
+                let gearGram = selectedOption.val();
+                $(this).siblings('.gear-info').find('.gear_image').attr('src', gearImage);
+                $(this).siblings('.gear-info').find('.gear_gram').text(gearGram + 'g');
+                let totalGram = 0;
                 $('.gear-select').each(function() {
-                    totalGram += parseInt($(this).val());
+                    let gram = $(this).find('option:selected').val();
+                    if (gram) {
+                        totalGram += parseInt(gram);
+                    }
                 });
-                $('.total-gram').text(totalGram);
+                $('.total-gram').text('Total gram: ' + totalGram + 'g');
             });
         });
     </script>
 </body>
+
 
 </html>

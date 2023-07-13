@@ -1,5 +1,8 @@
 <?php
+session_start();
 include('functions.php');
+check_session_id();
+
 // DB接続
 $pdo = connect_to_db();
 

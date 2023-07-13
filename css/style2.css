@@ -47,7 +47,7 @@ h1 {
 }
 
 .gear_list_link {
-    padding: 20px 0 20px;
+    padding: 10px 0 10px;
     text-align: right;
 
 }
@@ -162,4 +162,28 @@ h1 {
     vertical-align: middle;
     padding: 10px;
 
+}
+
+
+
+/*---------------------
+        装備作成
+----------------------*/
+
+.total-gram {
+    font-size: 3rem;
+    font-weight: bold;
+    text-align: center;
+}
+
+
+/*---------------------
+        ログイン画面
+----------------------*/
+
+.background {
+    background: url(../img/background.webp);
+    background-size: cover;
+    background-position: top;
+    height: 300px;
 }
