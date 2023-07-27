@@ -31,10 +31,11 @@ try {
 $user = $stmt->fetch(PDO::FETCH_ASSOC);
 if (!$user) {
     echo "<p>ログイン情報に誤りがあります</p>";
-    echo "<a href=todo_login.php>ログイン</a>";
+    echo "<a href=packtogo_login.php>ログイン</a>";
     exit();
 } else {
     $_SESSION = array();
+    $_SESSION['user_id'] = $user['id'];
     $_SESSION['session_id'] = session_id();
     $_SESSION['is_admin'] = $user['is_admin'];
     $_SESSION['username'] = $user['username'];

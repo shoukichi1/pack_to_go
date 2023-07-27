@@ -7,7 +7,22 @@ check_session_id();
 $pdo = connect_to_db();
 
 // SQL作成&実行
-$sql = 'SELECT * FROM gear_table WHERE deleted_at IS NULL ORDER BY created_at DESC';
+// $sql = 'SELECT * FROM gear_table WHERE deleted_at IS NULL ORDER BY created_at DESC';
+$sql = 'SELECT
+  *
+FROM
+  gear_table
+  LEFT OUTER JOIN
+    (
+      SELECT
+        gear_id,
+        COUNT(id) AS like_count
+      FROM
+        like_table
+      GROUP BY
+        gear_id
+    ) AS result_table
+  ON  gear_table.id = result_table.gear_id WHERE deleted_at IS NULL ORDER BY created_at DESC';
 
 $stmt = $pdo->prepare($sql);
 
@@ -26,6 +41,7 @@ $result = $stmt->fetchAll(PDO::FETCH_ASSOC);
 // var_dump($result);
 // echo '</pre>';
 
+$user_id = $_SESSION['user_id'];
 
 $output = "";
 foreach ($result as $record) {
@@ -39,7 +55,8 @@ foreach ($result as $record) {
         <td><img src='{$file_path}' alt='Gear Image' class='gear_image'></td>
         <td>{$record['gear_kind']}</td>
         <td>{$record['gear_gram']}</td>
-        <td>{$record['gear_text']}</td>";
+        <td>{$record['gear_text']}</td>
+        <td><a href='like_create.php?user_id={$user_id}&gear_id={$record["id"]}'>like{$record["like_count"]}</a></td>";
     if ($_SESSION['is_admin'] === 1) {
         $output .= "<td><a href='packtogo_edit.php?id={$record["id"]}'>edit</a></td>
       <td><a href='packtogo_delete.php?id={$record["id"]}'>delete</a></td>";
